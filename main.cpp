@@ -4,14 +4,15 @@
 using namespace std;
 
 int main() {
-  print("Does clear work?");
+  //print("Does clear work?");
+  
   clearScreen();
   // Regular std::cout
   cout << "cout says: Hello World!\n";
   // Function style with fmtlib
   print("fmt says: Hello, world\n");
   //print(titleStyle, "Hello world!\n");
-  
+
   std::string name = "Mitcho";
   int age = 64;
   // Joining vars and literals with cout
@@ -38,6 +39,7 @@ int main() {
 
   print(title_style, knight_words);
   print("\n");
-  print(error_style, "\t\t\t_BLOWING UP NOW_");
+  delay(1000);
+  print(error_style, "\t\t\t_BLOWING UP NOW_\n");
   print("\n");
 }

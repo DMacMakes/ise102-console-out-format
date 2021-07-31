@@ -11,7 +11,7 @@ ifeq (, $(shell which clang++))
  CC = gcc
 endif
 
-CFLAGS=-I. -I./include -pthread -std=c++17
+CFLAGS=-I. -I./include -pthread -std=c++14
 OUTDIR=build
 SOURCES=main.cpp 
 #src/file.cpp src/locale.cpp src/reader.cpp src/vscan.cpp

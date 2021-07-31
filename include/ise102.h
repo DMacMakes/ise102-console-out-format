@@ -3,6 +3,9 @@
 
 //#include <iostream>
 //#include "scn/all.h"
+#include <cstdlib>
+#include <chrono>
+#include <thread>
 #include "fmt/core.h"
 #include "fmt/format.h"
 #include "fmt/color.h"
@@ -15,20 +18,24 @@ using fmt::bg;
 //using scn::input;
 //using scn::prompt;
 using fmt::color;
-
-//void newLine()
-//{
-  //std::cout << std::endl;
-//}
+using namespace std::literals::chrono_literals;
 #include <cstdlib>
+
+
+void delay(int duration_ms)
+{
+  std::this_thread::sleep_for(std::chrono::milliseconds(duration_ms));
+}
 
 void clearScreen()
 {
 #ifdef WINDOWS
   std::system("cls");
+  //print("\n windows clearscreen \n");
 #else
   // Assume POSIX
   std::system("clear");
+  //print("\n linux clearscreen \n");
 #endif
 }
 
