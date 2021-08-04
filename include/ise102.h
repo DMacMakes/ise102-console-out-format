@@ -2,24 +2,39 @@
 #define ISE102_H
 
 //#include <iostream>
-//#include "scn/all.h"
 #include <cstdlib>
 #include <chrono>
 #include <thread>
+#include "scn/all.h"
 #include "fmt/core.h"
 #include "fmt/format.h"
 #include "fmt/color.h"
+// Detect target's platform and set some macros in order to wrap platform
+// specific code this library depends on.
+// Platform check borrowed from termcolor.hpp, github.com/ikalnytskyi
+#if defined(__unix__) || defined(__unix) || (defined(__APPLE__) && defined(__MACH__))
+#   define TARGET_POSIX
+#elif defined(_WIN32) || defined(_WIN64)
+#   define TARGET_WINDOWS
+#endif
+
+#if defined(TARGET_POSIX)
+// Use conio_linux.h on LINUX (including replit)
+#   include "conio_linux.h"
+#elif defined(TARGET_WINDOWS)
+//Use conio.h on WINDOWS (Visual Studio Community, open the sln file)
+# include <conio.h>
+#endif
 //using namespace std;
 using fmt::print;
 using fmt::format;
 using fmt::emphasis;
 using fmt::fg;
 using fmt::bg;
-//using scn::input;
-//using scn::prompt;
+using scn::input;
+using scn::prompt;
 using fmt::color;
 using namespace std::literals::chrono_literals;
-#include <cstdlib>
 
 
 void delay(int duration_ms)

@@ -8,7 +8,7 @@ ifeq (, $(shell which clang++-7))
 endif
 
 ifeq (, $(shell which clang++))
- CC = gcc
+ CC = g++
 endif
 
 CFLAGS=-I. -I./include -pthread -std=c++14
@@ -40,9 +40,9 @@ cleanvs: clean
 
 clean:
 	@rm -rf build
-	@rm -f console-out-format
-	@rm -f console-out-format.exe
-	@rm -f console-out-format.pdb
+	@rm -f $(EXE)
+	@rm -f $(EXE).exe
+	@rm -f $(EXE).pdb
 
 cleanlibs:
 	@rm build/*.o
